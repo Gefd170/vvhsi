@@ -1,0 +1,259 @@
+/* أساسيات الصفحة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #ffd700; /* اللون الذهبي */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* تأثير النجوم في الخلفية */
+.stars, .stars2, .stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    animation: twinkle 5s infinite;
+}
+
+.stars2 .star {
+    animation-delay: 1s;
+    animation-duration: 7s;
+    background-color: #ffb700;
+}
+
+.stars3 .star {
+    animation-delay: 2s;
+    animation-duration: 9s;
+    background-color: #ff9d00;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+/* العناصر الرئيسية */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+h1.gold-glow {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 
+                 0 0 20px rgba(255, 215, 0, 0.5),
+                 0 0 30px rgba(255, 215, 0, 0.3);
+    color: #ffd700;
+}
+
+.gold-text {
+    color: #ffd700;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+/* الأزرار الذهبية */
+.gold-button {
+    display: inline-block;
+    background: linear-gradient(145deg, #ffd700, #b8860b);
+    color: #000;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    margin: 15px 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    border: none;
+    cursor: pointer;
+}
+
+.gold-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+    background: linear-gradient(145deg, #ffdf40, #daa520);
+}
+
+.gold-button i {
+    margin-left: 8px;
+}
+
+/* روابط سياسة الخصوصية */
+.privacy-link {
+    margin-top: 30px;
+}
+
+.privacy-link a {
+    color: #1e90ff; /* اللون الأزرق المطلوب */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.privacy-link a:hover {
+    text-decoration: underline;
+    color: #00bfff;
+}
+
+/* صفحة سياسة الخصوصية */
+.privacy-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.privacy-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ffd700;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    text-align: right;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* صفحة المقالات */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px 15px;
+    min-height: 150px;
+    transition: all 0.3s ease;
+}
+
+.article-card i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.article-card span {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* صفحة المقالة الفردية */
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.article-content {
+    text-align: right;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.article-content h2 {
+    color: #ffd700;
+    margin: 25px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ffd700;
+    font-size: 1.8rem;
+}
+
+.article-content h3 {
+    color: #ffd700;
+    margin: 20px 0 10px;
+    font-size: 1.4rem;
+}
+
+.article-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.article-content ul, .article-content ol {
+    margin: 15px 0 25px 40px;
+    text-align: right;
+}
+
+.article-content li {
+    margin-bottom: 10px;
+}
+
+.article-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .content {
+        padding: 20px 10px;
+    }
+    
+    h1.gold-glow {
+        font-size: 2rem;
+    }
+    
+    .gold-text {
+        font-size: 1rem;
+    }
+    
+    .article-content {
+        padding: 20px;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
