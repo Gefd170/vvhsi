@@ -3,643 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام VVHSI المتقدم - حلول تقنية متطورة</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* التصميم العام */
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f8f9fa;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* التصميم للغة العربية */
-        body {
-            direction: rtl;
-            text-align: right;
-        }
-        
-        /* الشريط العلوي */
-        header {
-            background: linear-gradient(135deg, var(--primary), #1a2530);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo i {
-            font-size: 2.2rem;
-            color: var(--secondary);
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        nav a:hover, nav a.active {
-            background-color: var(--secondary);
-        }
-        
-        /* القسم البطولي */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 5rem 1rem;
-            margin-bottom: 3rem;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 2px solid var(--secondary);
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            margin-left: 15px;
-        }
-        
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        /* الأقسام الرئيسية */
-        section {
-            padding: 4rem 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 4px;
-            background-color: var(--secondary);
-            border-radius: 2px;
-        }
-        
-        .section-header p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            color: #666;
-        }
-        
-        /* ميزات */
-        .features {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 3rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-card i {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        /* مساحة الإعلانات */
-        .ad-container {
-            background-color: #f0f0f0;
-            border: 1px dashed #ccc;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 2rem 0;
-            text-align: center;
-            min-height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .ad-container h3 {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .ad-container p {
-            color: #888;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .ad-placeholder {
-            width: 100%;
-            max-width: 728px;
-            height: 90px;
-            background: linear-gradient(45deg, #e0e0e0, #f5f5f5);
-            margin: 20px auto;
-            border-radius: 6px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #999;
-            font-weight: bold;
-        }
-        
-        /* المحتوى */
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-            margin-bottom: 3rem;
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .main-content {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-        }
-        
-        .main-content h3 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--light);
-        }
-        
-        .main-content p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-        
-        .sidebar {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-        }
-        
-        .sidebar h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--light);
-        }
-        
-        /* النموذج */
-        .contact-form {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 3rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-control:focus {
-            border-color: var(--secondary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* فوتر */
-        footer {
-            background: linear-gradient(135deg, var(--primary), #1a2530);
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--secondary);
-        }
-        
-        .footer-column ul li i {
-            color: var(--secondary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        /* تصميم متجاوب */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                display: block;
-                margin: 10px auto;
-                width: 80%;
-                max-width: 300px;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-            }
-        }
-    </style>
+    <title>مرحبًا بك في عالم العملات الرقمية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- الرأس -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-microchip"></i>
-                <h1>نظام <span>VVHSI</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">الرئيسية</a></li>
-                    <li><a href="#">عن النظام</a></li>
-                    <li><a href="#">الميزات</a></li>
-                    <li><a href="#">التوثيق</a></li>
-                    <li><a href="#">اتصل بنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- القسم البطولي -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>نظام VVHSI المتقدم لحلول التكنولوجيا الذكية</h2>
-                <p>تكنولوجيا متطورة توفر حلولاً مبتكرة للشركات والأفراد لتحقيق الكفاءة والأداء العالي في عملياتهم التقنية</p>
-                <div>
-                    <a href="#" class="btn">ابدأ الآن</a>
-                    <a href="#" class="btn btn-outline">معاينة النظام</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- مساحة إعلانية في الأعلى -->
     <div class="container">
-        <div class="ad-container">
-            <h3>مساحة إعلانية - 728 × 90</h3>
-            <p>سيتم عرض الإعلانات هنا بعد قبولك في برنامج AdSense</p>
-            <div class="ad-placeholder">إعلان 728 × 90</div>
-        </div>
-    </div>
-
-    <!-- قسم الميزات -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>مميزات نظام VVHSI</h2>
-                <p>اكتشف القوة والابتكار في نظامنا المتقدم الذي صُمم ليلبي احتياجاتك التقنية المتطورة</p>
-            </div>
-            
-            <div class="features">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-bolt"></i>
-                        <h3>أداء فائق السرعة</h3>
-                        <p>نظام يعمل بسرعة فائقة لتحقيق أقصى قدر من الكفاءة وتقليل وقت الاستجابة</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>حماية متقدمة</h3>
-                        <p>طبقات أمان متعددة لحماية بياناتك ونظامك من التهديدات الإلكترونية</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <i class="fas fa-sync-alt"></i>
-                        <h3>تحديثات مستمرة</h3>
-                        <p>تحديثات دورية تضمن حصولك على أحدث الميزات وتحسينات الأداء</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- المحتوى الرئيسي -->
-    <div class="container">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+        
         <div class="content">
-            <div class="main-content">
-                <h3>عن نظام VVHSI</h3>
-                <p>نظام VVHSI هو حل تقني متكامل صُمم لمساعدة الشركات والمطورين على إدارة عملياتهم التقنية بكفاءة عالية. يعتمد النظام على أحدث التقنيات في مجال الحوسبة السحابية والذكاء الاصطناعي لتحقيق أداء متميز.</p>
-                
-                <p>يقدم النظام مجموعة واسعة من الميزات التي تجعله الخيار الأمثل للمشاريع الصغيرة والمتوسطة والكبيرة. من خلال واجهة مستخدم بديهية وسهلة الاستخدام، يمكنك التحكم الكامل في نظامك دون الحاجة إلى خبرات تقنية متقدمة.</p>
-                
-                <h3>كيف يعمل النظام؟</h3>
-                <p>يعمل نظام VVHSI على تحليل البيانات وتنظيمها بطريقة ذكية لتحقيق أقصى استفادة من موارد النظام. من خلال خوارزميات متطورة، يقوم النظام بتحسين الأداء تلقائيًا وتقديم توصيات لتحسين الكفاءة.</p>
-                
-                <p>يتكامل النظام مع مجموعة واسعة من المنصات والخدمات الخارجية، مما يتيح لك بناء نظام متكامل يلبي جميع احتياجاتك التقنية. كما يدعم النظام التخصيص والتوسع حسب متطلبات عملك.</p>
-                
-                <!-- مساحة إعلانية داخل المحتوى -->
-                <div class="ad-container">
-                    <h3>مساحة إعلانية - 300 × 250</h3>
-                    <p>إعلانات متوافقة مع سياسات AdSense ستظهر هنا</p>
-                    <div class="ad-placeholder">إعلان 300 × 250</div>
-                </div>
-                
-                <h3>فوائد النظام</h3>
-                <p>يوفر نظام VVHSI العديد من الفوائد لشركتك، بما في ذلك:</p>
-                <ul style="list-style-position: inside; margin-bottom: 20px; padding-right: 20px;">
-                    <li style="margin-bottom: 10px;">تقليل التكاليف التشغيلية بنسبة تصل إلى 40%</li>
-                    <li style="margin-bottom: 10px;">زيادة الإنتاجية والكفاءة في العمليات التقنية</li>
-                    <li style="margin-bottom: 10px;">تحسين تجربة المستخدم النهائي</li>
-                    <li style="margin-bottom: 10px;">توفير حلول قابلة للتطوير مع نمو أعمالك</li>
-                    <li>دعم فني متكامل على مدار الساعة</li>
-                </ul>
-            </div>
+            <h1 class="gold-glow">مرحبًا بك في عالم العملات الرقمية</h1>
+            <p class="gold-text">
+                في هذا الموقع سوف تتعلم كل شيء يخص العملات الرقمية والتعدين السحابي 
+                من الصفر حتى الاحتراف. اكتشف عالمًا جديدًا من الفرص المالية والتقنيات 
+                الثورية التي تغير مفهوم الثروة في القرن الحادي والعشرين.
+            </p>
             
-            <div class="sidebar">
-                <h3>أحدث التحديثات</h3>
-                <p>إصدار 2.5 - يناير 2024</p>
-                <ul style="list-style-position: inside; padding-right: 20px; margin-top: 15px;">
-                    <li style="margin-bottom: 10px;">تحسينات كبيرة في أداء النظام</li>
-                    <li style="margin-bottom: 10px;">واجهة مستخدم محدثة وأكثر سهولة</li>
-                    <li style="margin-bottom: 10px;">ميزات أمان إضافية</li>
-                    <li>دعم لتقنيات الذكاء الاصطناعي الجديدة</li>
-                </ul>
-                
-                <!-- مساحة إعلانية في الشريط الجانبي -->
-                <div class="ad-container" style="margin-top: 30px;">
-                    <h3>مساحة إعلانية - 300 × 600</h3>
-                    <p>إعلانات متوافقة مع سياسات AdSense</p>
-                    <div class="ad-placeholder">إعلان 300 × 600</div>
-                </div>
-                
-                <h3 style="margin-top: 30px;">تواصل معنا</h3>
-                <p>للاستفسارات أو الدعم الفني، يرجى التواصل مع فريقنا:</p>
-                <ul style="list-style: none; padding-right: 0; margin-top: 15px;">
-                    <li style="margin-bottom: 10px;"><i class="fas fa-envelope"></i> info@vvhsi-system.com</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-phone"></i> +966 123 456 789</li>
-                    <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
-                </ul>
+            <a href="articles.html" class="gold-button">
+                <i class="fas fa-graduation-cap"></i> أريد التعلم الآن
+            </a>
+            
+            <div class="privacy-link">
+                <a href="privacy.html">سياسة الخصوصية</a>
             </div>
         </div>
     </div>
-
-    <!-- نموذج الاتصال -->
-    <div class="container">
-        <div class="contact-form">
-            <div class="section-header">
-                <h2>تواصل معنا</h2>
-                <p>يسعدنا تلقي استفساراتكم واقتراحاتكم حول نظام VVHSI</p>
-            </div>
+    
+    <script>
+        // إنشاء تأثير النجوم في الخلفية
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.stars');
+            const starsCount = 150;
             
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">الاسم الكامل</label>
-                    <input type="text" id="name" class="form-control" required>
-                </div>
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(star);
+            }
+            
+            // نفس الشيء للطبقات الأخرى من النجوم
+            const container2 = document.querySelector('.stars2');
+            const container3 = document.querySelector('.stars3');
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star2 = document.createElement('div');
+                star2.classList.add('star');
+                star2.style.left = `${Math.random() * 100}%`;
+                star2.style.top = `${Math.random() * 100}%`;
+                star2.style.animationDelay = `${Math.random() * 5}s`;
+                container2.appendChild(star2);
                 
-                <div class="form-group">
-                    <label for="email">البريد الإلكتروني</label>
-                    <input type="email" id="email" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject">الموضوع</label>
-                    <input type="text" id="subject" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">الرسالة</labe
+                const star3 = document.createElement('div');
+                star3.classList.add('star');
+                star3.style.left = `${Math.random() * 100}%`;
+                star3.style.top = `${Math.random() * 100}%`;
+                star3.style.animationDelay = `${Math.random() * 5}s`;
+                container3.appendChild(star3);
+            }
+        });
+    </script>
+</body>
+</html>
